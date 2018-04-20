@@ -333,7 +333,7 @@ int Tree::height()
 
 void preorder_recursiva(Node *no){
 
-	cout << no->value << endl;
+	cout << no->value << " ";
 	if (no->left){
 		preorder_recursiva(no->left);
 	}
@@ -362,7 +362,7 @@ void inorder_recursiva(Node *no){
 		inorder_recursiva(no->left);
 	}
 
-	cout << no->value << endl;
+	cout << no->value << " ";
 
 	if(no->right != NULL){
 			inorder_recursiva(no->right);
@@ -392,7 +392,7 @@ void postorder_recursiva(Node *no){
 	if (no->right){
 		postorder_recursiva(no->right);
 	}
-	cout << no->value << endl;
+	cout << no->value << " ";
 
 }
 
@@ -419,52 +419,36 @@ int main() {
     arvore.insert(11);
     arvore.insert(5);
 
-    arvore.print_preorder();
+    // arvore.print_preorder();
+    cout << "Inorder = ";
     arvore.print_inorder();
+    cout << endl;
+    cout << "Postorder = ";
     arvore.print_postorder();
-
-    cout << "Tamanho = " << arvore.size() << endl;
-    cout << "Altura  = " << arvore.height() << endl;
-
-    if (arvore.find(42)) cout << 42 << " encontrado!\n";
-    if (arvore.find(63)) cout << 63 << " encontrado!\n";
-    if (arvore.find( 8)) cout <<  8 << " encontrado!\n";
-    if (arvore.find( 5)) cout <<  5 << " encontrado!\n";
-    if (arvore.find( 7)) cout <<  7 << " encontrado!\n";
-
-    arvore.erase(6);
-    arvore.erase(48);
-
+    cout << endl;
+    cout << "Preorder = ";
     arvore.print_preorder();
-    arvore.print_inorder();
-    arvore.print_postorder();
+    cout << endl;
 
-    arvore.erase(42);
-    arvore.erase(57);
-    arvore.erase(48);
-    arvore.erase(35);
+    // cout << "Tamanho = " << arvore.size() << endl;
+    // cout << "Altura  = " << arvore.height() << endl;
 
-    arvore.print_preorder();
-    arvore.print_inorder();
-    arvore.print_postorder();
+    cout << "Procurou 42" << endl;
+    if (arvore.find(35)) cout << 42 << " encontrado!\n";
 
-    cout << "Tamanho = " << arvore.size() << endl;
-    cout << "Altura  = " << arvore.height() << endl;
 
-    if (arvore.find(42)) cout << 42 << " encontrado!\n";
-    if (arvore.find(63)) cout << 63 << " encontrado!\n";
-    if (arvore.find(48)) cout << 48 << " encontrado!\n";
-    if (arvore.find( 5)) cout <<  5 << " encontrado!\n";
-    if (arvore.find(57)) cout << 57 << " encontrado!\n";
+    cout << "Procurou 40" << endl;
+    if (arvore.find(40))
+      cout << 40 << " encontrado!\n";
+    else
+      cout << 40 << " não encontrado!\n";
 
     if (arvore.empty()) cout << "Arvore vazia" << endl;
 
+    cout << "======== Clear ========" << endl;
     arvore.clear();
     if (arvore.empty()) cout << "Arvore vazia" << endl;
 
-    arvore.print_preorder();
-    arvore.print_inorder();
-    arvore.print_postorder();
 
     return 0;
 }
